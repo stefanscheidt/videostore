@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Customer {
 
-    private String name;
-    private List<Rental> rentals = new ArrayList<>();
+    private final String name;
+    private final List<Rental> rentals = new ArrayList<>();
 
     public Customer(String name) {
         this.name = name;
@@ -23,7 +23,7 @@ public class Customer {
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        String result = "Rental Record for " + getName() + "\n";
+        StringBuilder result = new StringBuilder(String.format("Rental Record for %s\n", getName()));
 
         for(Rental each: rentals) {
             double thisAmount = 0;
@@ -56,18 +56,16 @@ public class Customer {
             }
 
             // show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
+            result.append(String.format("\t%s\t%s\n", each.getMovie().getTitle(), thisAmount));
 
             totalAmount += thisAmount;
         }
 
         // add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
-                + " frequent renter points";
+        result.append(String.format("Amount owed is %s\n", totalAmount));
+        result.append(String.format("You earned %s frequent renter points", frequentRenterPoints));
 
-        return result;
+        return result.toString();
     }
 
 }

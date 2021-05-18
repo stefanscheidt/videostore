@@ -1,9 +1,9 @@
 package imaginary.videostore;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomerTest {
 
@@ -13,8 +13,8 @@ public class CustomerTest {
     private Movie newReleaseMovie;
     private Customer customer;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() {
         regularMovie1 = new Movie("Regular 1", Movie.REGULAR);
         regularMovie2 = new Movie("Regular 2", Movie.REGULAR);
         childrenMovie = new Movie("Children", Movie.CHILDRENS);
@@ -27,7 +27,7 @@ public class CustomerTest {
         String expectedStatement = "Rental Record for Customer\n"
                 + "Amount owed is 0.0\n"
                 + "You earned 0 frequent renter points";
-        assertEquals("should generate 'empty' statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).as("should generate 'empty' statment.").isEqualTo(expectedStatement);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class CustomerTest {
                 + "\tRegular 1\t2.0\n"
                 + "Amount owed is 2.0\n"
                 + "You earned 1 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class CustomerTest {
                 + "\tRegular 1\t3.5\n"
                 + "Amount owed is 3.5\n"
                 + "You earned 1 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class CustomerTest {
                 + "\tRegular 1\t5.0\n"
                 + "Amount owed is 5.0\n"
                 + "You earned 1 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class CustomerTest {
                 + "\tRegular 2\t3.5\n"
                 + "Amount owed is 5.5\n"
                 + "You earned 2 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class CustomerTest {
                 + "\tNew Release\t3.0\n"
                 + "Amount owed is 3.0\n"
                 + "You earned 1 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class CustomerTest {
                 + "\tNew Release\t6.0\n"
                 + "Amount owed is 6.0\n"
                 + "You earned 2 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -99,7 +99,7 @@ public class CustomerTest {
                 + "\tChildren\t1.5\n"
                 + "Amount owed is 1.5\n"
                 + "You earned 1 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -109,7 +109,7 @@ public class CustomerTest {
                 + "\tChildren\t3.0\n"
                 + "Amount owed is 3.0\n"
                 + "You earned 1 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -119,7 +119,7 @@ public class CustomerTest {
                 + "\tChildren\t4.5\n"
                 + "Amount owed is 4.5\n"
                 + "You earned 1 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
     @Test
@@ -135,7 +135,7 @@ public class CustomerTest {
                 + "\tChildren\t4.5\n"
                 + "Amount owed is 19.0\n"
                 + "You earned 5 frequent renter points";
-        assertEquals("generates wrong statment.", expectedStatement, customer.statement());
+        assertThat(customer.statement()).isEqualTo(expectedStatement);
     }
 
 }
