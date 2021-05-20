@@ -23,8 +23,19 @@ See the package [`imaginary.videostore`](./src/main/java/imaginary/videostore).
 
 In the [test sources](./src/test/java/imaginary/videostore) you'll find tests for the statement generation implemented in the class `Customer`.
 
-## Your task
+## Your Task
 
 Implement the capability to generate an HTML version of the statement.
-Before doing that, refactor the existing code to make the change easy.
-Look out for [code smells](https://refactoring.guru/refactoring/smells) like [long method](https://refactoring.guru/smells/long-method) or [feature envy](https://refactoring.guru/smells/feature-envy) to guide your refactoring.
+
+Secondly, the users want to make changes to the way they classify movies, but they haven't yet decided on the change they are going to make.
+They have a number of changes in mind.
+These changes will affect both the way renters are charged for movies, and the way that frequent renter points are calculated.
+
+Before extending the code, refactor it to make the changes easy.
+For doing this:
+
+*   Look out for [code smells](https://refactoring.guru/refactoring/smells) like [long method](https://refactoring.guru/smells/long-method) or [feature envy](https://refactoring.guru/smells/feature-envy) to guide your refactoring.
+*   Try to make small refactoring steps and run the tests often.
+*   Probably you can use automated refactorings provided by your IDE.
+
+Check if you can also improve the tests after you did your refactorings of the production code.
