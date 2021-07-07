@@ -1,8 +1,9 @@
-name: Verify Main
+name: Verify Master
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   verify-main:
