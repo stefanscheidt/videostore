@@ -23,6 +23,7 @@ dependencies {
     // https://junit.org/junit5/docs/current/user-guide/
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // https://assertj.github.io/doc/
     // https://github.com/assertj/assertj-examples
