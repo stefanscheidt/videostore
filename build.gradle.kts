@@ -31,5 +31,5 @@ dependencies {
 
     // https://site.mockito.org/
     // https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html
-    testImplementation("org.mockito:mockito-core:5.4.0")
+    testImplementation("org.mockito:mockito-core:5.5.0")
 }
